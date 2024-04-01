@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Book Display</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .random-books {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        .book {
+            width: 200px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+            cursor: pointer;
+        }
+        .book img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Random Book Display</h1>
+    <div class="random-books">
+        {% for book in random_books %}
+        <div class="book" onclick="showDetails('{{ book.isbn }}')">
+            <img src="{{ book.img }}" alt="{{ book.title }} Image">
+            <p>{{ book.author }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+    <script>
+        function showDetails(isbn) {
+            window.location.href = "/book/" + isbn;
+        }
+
+    </script>
+</body>
+</html>
+
