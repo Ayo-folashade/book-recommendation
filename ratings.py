@@ -6,7 +6,7 @@ import pandas as pd
 app = Flask(__name__)
 
 # Read data from CSV
-book_data = pd.read_csv('goodreadss.csv')
+book_data = pd.read_csv('goodreads.csv')
 
 # Define the path to the CSV file
 CSV_FILE = 'ratings_comments.csv'
